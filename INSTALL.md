@@ -113,7 +113,7 @@ restart the webserver
 service nginx restart
 ```
 
-## Install MongoDB
+### Install MongoDB
 
 Import the public key used by the package management system and install mongodb package
 
@@ -123,7 +123,7 @@ apt-get update
 apt-get install mongodb-org
 ```
 
-## Intall Mongo PHP Extension
+### Install Mongo PHP Extension
 
 install make
 ``` sh
