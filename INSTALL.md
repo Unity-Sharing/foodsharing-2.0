@@ -9,7 +9,6 @@ Here you will find our installation notes for different Plattforms
 
 ## Debian Wheezy 7.1
 At the Moment our developement server is an Debian Machin, wo here we go.
-Nginx Webserver give us more performance than Apache, so in this case we will use it.
 
 ### System Update
 First of all we will update our system.
@@ -42,7 +41,7 @@ backup default config
 mv default old.default
 ´´´
 edit our own config file
-´´´
+´´´shell
 vi default
 ´´´
 basic configuration to put in there
@@ -96,57 +95,57 @@ server {
 
 ´´´
 restart the webserver
-´´´
+´´´shell
 service nginx restart
 ´´´
 ## Install MongoDB
 Import the public key used by the package management system and install mongodb package
-´´´
+´´´shell
 echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
 apt-get update
 apt-get install mongodb-org
 ´´´
 ## Intall Mongo PHP Extension
 install make
-´´´
+´´´shell
 apt-get install make
 ´´´
 install mongodb extension with pecl
-´´´
+´´´shell
 pecl install mongo
 ´´´
 add extension to php.ini
-´´´
+´´´shell
 vi /etc/php5/fpm/php.ini
 ´´´
 add this line to the end of php.ini
-´´´
+´´´shell
 extension = mongo.so
 ´´´
 and save it!
 Now restart php-fpm wrapper
-´´´
+´´´shell
 service php5-fpm restart
 ´´´
 go to document root, install git and clean up
-´´´
+´´´shell
 cd /var/www
 rm -rf ./*
 apt-get install git
 ´´´
 and clone the source code into current document root directory
-´´´
+´´´shell
 git clone https://github.com/Unity-Sharing/foodsharing-2.0.git .
 ´´´
 make directories and chmod it
-´´´
+´´´shell
 mkdir /var/www/tmp
 mkdir /var/www/public/img
 chmod 775 /var/www/tmp
 chmod 775 /var/www/public/img
 ´´´
 run install script
-´´´
+´´´shell
 cd /var/www/public
 php install.php
 chmod 775 /var/www/tmp -R
